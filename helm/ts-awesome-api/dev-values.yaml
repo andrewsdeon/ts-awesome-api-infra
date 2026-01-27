@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: myregistry/ts-awesome-api
-  tag: "1.0.0"
+  tag: dev-ts-api-<sha>
   pullPolicy: IfNotPresent
 
 service:
