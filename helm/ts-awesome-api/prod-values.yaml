@@ -1,8 +1,8 @@
 replicaCount: 2
 
 image:
-  repository: myregistry/ts-awesome-api
-  tag: prod-ts-api-<sha>
+  repository: ghcr.io/andrewsdeon/ts-awesome-api-app
+  tag: prod-ts-api-76c3ce1
   pullPolicy: IfNotPresent
 
 service:
