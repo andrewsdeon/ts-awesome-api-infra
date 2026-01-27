@@ -4,6 +4,8 @@ image:
   repository: ghcr.io/andrewsdeon/ts-awesome-api-app
   tag: prod-ts-api-76c3ce1
   pullPolicy: IfNotPresent
+  pullSecrets:
+    - ghcr-secret
 
 service:
   type: ClusterIP
