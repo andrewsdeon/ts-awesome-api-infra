@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-ts-awesome-api
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/andrewsdeon/ts-awesome-api-infra.git
+    path: helm/ts-awesome-api
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - prod-values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

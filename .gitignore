@@ -1,0 +1,21 @@
+#Environment secrets
+prod-secret.yaml
+dev-secret.yaml
+
+# Helm build artifacts
+*.tgz
+.chart/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Python cache if you run scripts
+__pycache__/
+*.pyc
+
+# Local tooling
+.env
+

@@ -1,0 +1,29 @@
+name: TS Awesome API - Update Helm Values
+
+on:
+  repository_dispatch:
+    types: [update-image]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Update values file
+      run: |
+        if [ "${{ github.event.client_payload.env }}" = "main" ]; then
+          FILE=helm/helm/ts-awesome-api/prod-values.yaml
+          IMAGE=ghcr.io/andrewsdeon/ts-awesome-api-app/prod-ts-awesome-api
+        else
+          FILE=helm/helm/ts-awesome-api/dev-values.yaml
+          IMAGE=ghcr.io/andrewsdeon/ts-awesome-api-app/dev-ts-awesome-api
+        fi
+        sed -i "s|tag:.*|tag: ${{ github.event.client_payload.sha }}|" $FILE
+        sed -i "s|repository:.*|repository: $IMAGE|" $FILE
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: "helm/awesome-api/*.yaml"
+        message: "Update image tag for ${{ github.event.client_payload.env }}"
