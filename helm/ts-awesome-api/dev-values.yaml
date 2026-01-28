@@ -18,9 +18,11 @@ ingress:
           pathType: Prefix
   tls: []
 env:
-  APP_NAME: "dev-awesome-api"
-  APP_ENV: "develop"
+  APP_NAME: "dev-ts-awesome-api"
+  APP_ENV: "development"
   APP_VERSION: "0.1.0"
 secretEnv:
   SECRET_KEY:
     secretName: ts-awesome-api-dev-secret
+configMap:
+  name: dev-ts-api-ts-awesome-api-config
