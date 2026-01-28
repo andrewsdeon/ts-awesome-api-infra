@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/andrewsdeon/ts-awesome-api-app
-  tag: dev-ts-api-a6bf81c
+  tag: dev-ts-api-ec3a78f
   pullPolicy: IfNotPresent
   pullSecrets:
     - ghcr-secret
