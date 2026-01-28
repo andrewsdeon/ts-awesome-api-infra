@@ -22,7 +22,7 @@ spec:
             - containerPort: {{ .Values.service.port }}
           envFrom: 
             - configMapRef:
-                name: {{ .Values.configMap.name }
+                name: {{ .Values.configMap.name }}
           env:
             {{- range $key, $value := .Values.secretEnv }}
             - name: {{ $key }}
