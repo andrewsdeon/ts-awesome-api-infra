@@ -1,16 +1,13 @@
 replicaCount: 2
-
 image:
   repository: ghcr.io/andrewsdeon/ts-awesome-api-app
-  tag: prod-ts-api-76c3ce1
+  tag: prod-ts-api-c6f27c0
   pullPolicy: IfNotPresent
   pullSecrets:
     - ghcr-secret
-
 service:
   type: ClusterIP
   port: 8080
-
 ingress:
   enabled: true
   className: nginx
@@ -20,12 +17,10 @@ ingress:
         - path: /
           pathType: Prefix
   tls: []
-
 env:
   APP_NAME: "prod-ts-awesome-api"
   APP_ENV: "production"
   APP_VERSION: "0.1.0"
-
 secretEnv:
   SECRET_KEY:
     secretName: ts-awesome-api-prod-secret
