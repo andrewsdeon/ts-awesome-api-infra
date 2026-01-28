@@ -24,3 +24,5 @@ env:
 secretEnv:
   SECRET_KEY:
     secretName: ts-awesome-api-prod-secret
+configMap:
+  name: prod-ts-api-ts-awesome-api-config
